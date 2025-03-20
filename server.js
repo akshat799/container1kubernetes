@@ -53,8 +53,6 @@ app.post('/store-file', async(req,res) => {
 
 app.post('/calculate', async(req,res) => {
     const {file, product} = req.body;
-    const filePath = path.join(STORAGE_PATH, file);
-
     if(!file){
         return res.status(400).json(
             {
@@ -62,7 +60,9 @@ app.post('/calculate', async(req,res) => {
                 "error": "Invalid JSON input."
             }
         )
-    }else if (!fs.existsSync(filePath)){
+    }
+    const filePath = path.join(STORAGE_PATH, file);
+    if (!fs.existsSync(filePath)){
         return res.status(404).json(
             {
                 "file": file,
