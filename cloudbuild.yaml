@@ -1,15 +1,15 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:$COMMIT_SHA', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:latest', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:$COMMIT_SHA']
+  args: ['push', 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:latest']
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/container1-deployment', 'container1=us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:$COMMIT_SHA']
+  args: ['set', 'image', 'deployment/container1-deployment', 'container1=us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:latest']
   env:
   - 'CLOUDSDK_COMPUTE_REGION=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-assignment-cluster'
 images:
-- 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:$COMMIT_SHA'
+- 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:latest'
 
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
