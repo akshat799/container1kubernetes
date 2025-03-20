@@ -5,9 +5,8 @@ const path = require('path');
 
 const app = express();
 const PORT = 6000
-// const URL = "http://container2:8080/"
-const URL = "http://localhost:8080/"
-const STORAGE_PATH = "../dataTest";
+const URL = "http://container2-service:8000/"
+const STORAGE_PATH = "/akshat_PV_dir";
 
 app.use(express.json());
 
