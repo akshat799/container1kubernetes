@@ -10,7 +10,7 @@ steps:
     - |
       gcloud container clusters get-credentials k8s-assignment-cluster --region us-central1
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'k8s.yaml']
+  args: ['apply', '-f', '/home/gulati_akshat799/k8s.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_REGION=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-assignment-cluster'
