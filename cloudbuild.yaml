@@ -25,12 +25,6 @@ steps:
   - 'CLOUDSDK_COMPUTE_REGION=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-assignment-cluster'
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['rollout', 'restart', 'deployment/container1-deployment']
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-assignment-cluster'
-
 images:
 - 'us-central1-docker.pkg.dev/csci5409-454215/k8s-assignment/container1:latest'
 
